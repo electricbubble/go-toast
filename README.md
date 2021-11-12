@@ -1,8 +1,8 @@
 # Golang-Toast
 
-cross-platform library for sending desktop notifications
-
 [![license](https://img.shields.io/github/license/electricbubble/go-toast)](https://github.com/electricbubble/go-toast/blob/master/LICENSE)
+
+cross-platform library for sending desktop notifications
 
 ## Installation
 
@@ -11,6 +11,7 @@ go get github.com/electricbubble/go-toast
 ```
 
 ## Example
+
 - Common invocation
   ```go
   package main
@@ -45,6 +46,7 @@ go get github.com/electricbubble/go-toast
     }
     
     ```
+
 - `Windows`
   ```go
   package main
@@ -70,6 +72,34 @@ go get github.com/electricbubble/go-toast
       // toast.WithIconRaw(bs)
   }
   
+  ```
+
+- `js && wasm`
+  ```go
+  package main
+  
+  import (
+      "fmt"
+      "github.com/electricbubble/go-toast"
+  )
+  
+  func main() {
+      // _ = toast.Push("test message")
+      // _ = toast.Push("test message", toast.WithTitle("app title"))
+      _ = toast.Push("test_message",
+          toast.WithTitle("GO-WASM-APP"),
+          toast.WithOnClick(func(event interface{}) {
+              fmt.Println("click")
+          }),
+          toast.WithOnClose(func() {
+              fmt.Println("close")
+          }),
+          toast.WithOnShow(func() {
+              fmt.Println("show")
+          }),
+      )
+  }
+    
   ```
 
 ## Thanks
