@@ -45,6 +45,10 @@ func newNotification(message string, opts ...NotificationOption) *notification {
 }
 
 func (n *notification) push() error {
+	if n._useObjC {
+		return n.pushWithObjC()
+	}
+
 	script := n.template()
 	osa, err := exec.LookPath("osascript")
 	if err != nil {
@@ -68,15 +72,21 @@ func (n *notification) template() (script string) {
 
 type notification struct {
 	// The main title/heading for the notification.
-	Title string
+	Title string `json:"title"`
 
-	Subtitle string
+	Subtitle string `json:"subtitle"`
 
 	// The single/multi line message to display for the notification.
-	Message string
+	Message string `json:"message"`
 
 	// The audio to play when displaying the notification
-	Audio Audio
+	Audio Audio `json:"audio"`
+
+	_useObjC bool
+
+	// Fakes the sender application of the notification.
+	// This uses the specified application’s icon, and will launch it when the notification is clicked.
+	BundleID string `json:"bundle_id"`
 }
 
 func escapeNotificationString(s string) string {

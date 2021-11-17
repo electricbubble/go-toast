@@ -42,6 +42,7 @@ go get github.com/electricbubble/go-toast
             toast.WithTitle("app title"),
             toast.WithSubtitle("app sub title"),
             toast.WithAudio(toast.Ping),
+            // toast.WithObjectiveC(true),
         )
     }
     
@@ -113,3 +114,5 @@ Repository|Description
 |[go-toast/toast](https://github.com/go-toast/toast)|A go package for Windows 10 toast notifications|
 |[fyne-io/fyne](https://github.com/fyne-io/fyne)|Cross platform GUI in Go inspired by Material Design|
 |[gen2brain/beeep](https://github.com/gen2brain/beeep)|Go cross-platform library for sending desktop notifications, alerts and beeps|
+|[julienXX/terminal-notifier](https://github.com/julienXX/terminal-notifier)|Send User Notifications on macOS from the command-line.|
+|[variadico/noti](https://github.com/variadico/noti)|Monitor a process and trigger a notification.|
