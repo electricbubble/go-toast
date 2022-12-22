@@ -53,11 +53,20 @@ func WithIconRaw(raw []byte) NotificationOption {
 // WithActivationType
 //
 // The type of notification level action (like Action)
-// func WithActivationType(activationType string) NotificationOption {
-// 	return func(n *notification) {
-// 		n.ActivationType = activationType
-// 	}
-// }
+func WithActivationType(activationType string) NotificationOption {
+	return func(n *notification) {
+		n.ActivationType = activationType
+	}
+}
+
+// WithActivationArguments
+//
+// // The activation/action arguments (invoked when the user clicks the notification)
+func WithActivationArguments(activationArguments string) NotificationOption {
+	return func(n *notification) {
+		n.ActivationArguments = activationArguments
+	}
+}
 
 // WithProtocolAction
 //
